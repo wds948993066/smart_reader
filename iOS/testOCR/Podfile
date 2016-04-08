@@ -1,0 +1,5 @@
+platform :ios, "7.0"
+
+pod 'MBProgressHUD',        '0.9.1'
+pod 'UIImage+Additions',    '2.1.0'
+pod 'CPCameraView',         :svn => 'http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocoaPods/CPCameraView'

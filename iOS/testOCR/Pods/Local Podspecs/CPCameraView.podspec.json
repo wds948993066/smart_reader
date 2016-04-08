@@ -1,0 +1,22 @@
+{
+  "name": "CPCameraView",
+  "version": "0.0.1",
+  "summary": "自定义的视频窗口（支持条码二维码识别）",
+  "description": "自定义的视频窗口功能，实时显示摄像头的内容，支持条码及二维码的识别\n支持前后摄像头及拍照功能。",
+  "homepage": "http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocosPods/CPCameraView",
+  "license": "汇付保密协议",
+  "authors": {
+    "LeiQiao": "lei.qiao@chinapnr.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "svn": "http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocosPods/CPCameraView",
+    "tag": "0.0.1",
+    "submodules": true
+  },
+  "source_files": "CPCameraView/*.{h,m}",
+  "public_header_files": "CPCameraView/CPCameraView.h",
+  "requires_arc": true
+}

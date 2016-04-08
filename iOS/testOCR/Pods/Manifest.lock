@@ -1,0 +1,25 @@
+PODS:
+  - CPCameraView (0.0.1)
+  - MBProgressHUD (0.9.1)
+  - UIImage+Additions (2.1.0)
+
+DEPENDENCIES:
+  - CPCameraView (from `http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocoaPods/CPCameraView`)
+  - MBProgressHUD (= 0.9.1)
+  - UIImage+Additions (= 2.1.0)
+
+EXTERNAL SOURCES:
+  CPCameraView:
+    :svn: http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocoaPods/CPCameraView
+
+CHECKOUT OPTIONS:
+  CPCameraView:
+    :revision: '15823'
+    :svn: http://192.168.0.178/svn/InfoCenter/系统/移动应用/CPCocoaPods/CPCameraView
+
+SPEC CHECKSUMS:
+  CPCameraView: 07fadbe0933ffaaa622b7c63f562b00bad66fd08
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  UIImage+Additions: 6181430b139099649e56171d58a52d6c37d57e42
+
+COCOAPODS: 0.39.0
