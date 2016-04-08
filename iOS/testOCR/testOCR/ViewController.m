@@ -155,12 +155,12 @@
 -(void) savePictureToRemote:(UIImage*)image
 {
     NSString *boundary = [NSString stringWithFormat:@"Boundary-%@", [[NSUUID UUID] UUIDString]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.3.88:9191/images/"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.3.88:8080/images/"]];
     [request setHTTPMethod:@"POST"];
     
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-    [request setValue:@"http://192.168.3.88:9191/images/" forHTTPHeaderField: @"referer"];
+    [request setValue:@"http://192.168.3.88:8080/images/" forHTTPHeaderField: @"referer"];
     
     NSMutableData *httpBody = [NSMutableData data];
     
