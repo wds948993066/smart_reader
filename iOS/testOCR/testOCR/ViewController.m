@@ -15,6 +15,8 @@
 #import "UIImage+Denoise.h"
 #import "SelectIDViewController.h"
 #import <sys/utsname.h>
+#import "Base64.h"
+#import "JSON.h"
 
 @interface ViewController ()
 
@@ -155,30 +157,23 @@
 
 -(void) savePictureToRemote:(UIImage*)image
 {
-    NSString *boundary = [NSString stringWithFormat:@"Boundary-%@", [[NSUUID UUID] UUIDString]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.3.88:8080/"]];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSString* filename = [NSString stringWithFormat:@"%@_%@_%@_%@.jpg", [_idData objectForKey:@"id"], [_idData objectForKey:@"name"], [[self class] deviceVersion], [formatter stringFromDate:[NSDate date]]];
+    
+    NSData* imageData = UIImageJPEGRepresentation(image, 0.8);
+    
+    NSMutableDictionary* requestObject = [NSMutableDictionary new];
+    [requestObject setObject:[_idData objectForKey:@"name"] forKey:@"name"];
+    [requestObject setObject:[_idData objectForKey:@"name"] forKey:@"id_number"];
+    [requestObject setObject:filename forKey:@"file_name"];
+    [requestObject setObject:[Base64 base64EncodedStringFrom:imageData] forKey:@"file_content"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.0.206/ocr/upload_file.php"]];
     [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
     
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-    [request setValue:@"http://192.168.3.88:8080/" forHTTPHeaderField: @"referer"];
-    
-    NSMutableData *httpBody = [NSMutableData data];
-    
-    {
-        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"YYYYMMddHHmmss"];
-        NSString* filename = [NSString stringWithFormat:@"%@_%@_%@_%@.jpg", [_idData objectForKey:@"id"], [_idData objectForKey:@"name"], [[self class] deviceVersion], [formatter stringFromDate:[NSDate date]]];
-        
-        NSData* imageData = UIImageJPEGRepresentation(image, 0.8);
-        
-        [httpBody appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [httpBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n", filename] dataUsingEncoding:NSUTF8StringEncoding]];
-        [httpBody appendData:[[NSString stringWithFormat:@"Content-Type:  image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [httpBody appendData:imageData];
-        [httpBody appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
+    NSData* httpBody = [[requestObject JSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:httpBody];
     [request setValue:[NSString stringWithFormat:@"%u", (unsigned)[httpBody length]]
    forHTTPHeaderField:@"Content-Length"];

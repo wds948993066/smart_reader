@@ -15,6 +15,8 @@
 		453537D31C8E931B00BA209B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453537D11C8E931B00BA209B /* Main.storyboard */; };
 		453537D51C8E931B00BA209B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453537D41C8E931B00BA209B /* Assets.xcassets */; };
 		453537D81C8E931B00BA209B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453537D61C8E931B00BA209B /* LaunchScreen.storyboard */; };
+		457FFAF51CC4728B006C8C75 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FFAF41CC4728B006C8C75 /* Base64.m */; };
+		457FFAF91CC47364006C8C75 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FFAF81CC47364006C8C75 /* JSON.m */; };
 		45E120E61CB643B30075F6C5 /* SelectIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E120E51CB643B30075F6C5 /* SelectIDViewController.m */; };
 		45E120E91CB647F50075F6C5 /* AddIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E120E81CB647F50075F6C5 /* AddIDViewController.m */; };
 		45E120EE1CB736D30075F6C5 /* idcard_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E120ED1CB736D30075F6C5 /* idcard_mask.png */; };
@@ -39,6 +41,10 @@
 		453537D41C8E931B00BA209B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453537D71C8E931B00BA209B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453537D91C8E931B00BA209B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		457FFAF31CC4728B006C8C75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		457FFAF41CC4728B006C8C75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		457FFAF71CC47364006C8C75 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		457FFAF81CC47364006C8C75 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
 		45E120E41CB643B30075F6C5 /* SelectIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectIDViewController.h; sourceTree = "<group>"; };
 		45E120E51CB643B30075F6C5 /* SelectIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectIDViewController.m; sourceTree = "<group>"; };
 		45E120E71CB647F50075F6C5 /* AddIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIDViewController.h; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 				453537D41C8E931B00BA209B /* Assets.xcassets */,
 				453537D61C8E931B00BA209B /* LaunchScreen.storyboard */,
 				453537D91C8E931B00BA209B /* Info.plist */,
+				457FFAF61CC47364006C8C75 /* JSON */,
+				457FFAF21CC4728B006C8C75 /* Base64 */,
 				45FA9AA51CA4C969005C6725 /* HUD */,
 				453537C81C8E931B00BA209B /* Supporting Files */,
 				45FEB7301CA36F2C005A173B /* UIImage+Denoise.h */,
@@ -125,6 +133,24 @@
 				453537C91C8E931B00BA209B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		457FFAF21CC4728B006C8C75 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				457FFAF31CC4728B006C8C75 /* Base64.h */,
+				457FFAF41CC4728B006C8C75 /* Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		457FFAF61CC47364006C8C75 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				457FFAF71CC47364006C8C75 /* JSON.h */,
+				457FFAF81CC47364006C8C75 /* JSON.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		45FA9AA51CA4C969005C6725 /* HUD */ = {
@@ -272,6 +298,8 @@
 				453537D01C8E931B00BA209B /* ViewController.m in Sources */,
 				45E120E91CB647F50075F6C5 /* AddIDViewController.m in Sources */,
 				45E120E61CB643B30075F6C5 /* SelectIDViewController.m in Sources */,
+				457FFAF51CC4728B006C8C75 /* Base64.m in Sources */,
+				457FFAF91CC47364006C8C75 /* JSON.m in Sources */,
 				453537CD1C8E931B00BA209B /* AppDelegate.m in Sources */,
 				45FA9AA81CA4C969005C6725 /* HUD.m in Sources */,
 				453537CA1C8E931B00BA209B /* main.m in Sources */,
