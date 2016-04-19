@@ -159,21 +159,22 @@
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYYMMddHHmmss"];
-    NSString* filename = [NSString stringWithFormat:@"%@_%@_%@_%@.jpg", [_idData objectForKey:@"id"], [_idData objectForKey:@"name"], [[self class] deviceVersion], [formatter stringFromDate:[NSDate date]]];
+    NSString* filename = [NSString stringWithFormat:@"%@_%@.jpg", [[self class] deviceVersion], [formatter stringFromDate:[NSDate date]]];
     
     NSData* imageData = UIImageJPEGRepresentation(image, 0.8);
     
     NSMutableDictionary* requestObject = [NSMutableDictionary new];
     [requestObject setObject:[_idData objectForKey:@"name"] forKey:@"name"];
-    [requestObject setObject:[_idData objectForKey:@"name"] forKey:@"id_number"];
+    [requestObject setObject:[_idData objectForKey:@"id"] forKey:@"id_number"];
     [requestObject setObject:filename forKey:@"file_name"];
     [requestObject setObject:[Base64 base64EncodedStringFrom:imageData] forKey:@"file_content"];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.0.206/ocr/upload_file.php"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.3.88:8888/upload"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
     
-    NSData* httpBody = [[requestObject JSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* requestJSON = [requestObject JSONString];
+    NSData* httpBody = [requestJSON dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:httpBody];
     [request setValue:[NSString stringWithFormat:@"%u", (unsigned)[httpBody length]]
    forHTTPHeaderField:@"Content-Length"];
